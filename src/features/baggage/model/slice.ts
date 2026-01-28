@@ -1,18 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { LimitPreset } from "@/features/luggage/lib/types";
+import type { LimitPreset } from "@/features/baggage/lib/types";
 
-type LuggageState = {
+type baggageState = {
   selectedIds: string[];
   limitId: LimitPreset["id"];
 };
 
-const initialState: LuggageState = {
+const initialState: baggageState = {
   selectedIds: [],
   limitId: "CARRY_10",
 };
 
-const luggageSlice = createSlice({
-  name: "luggage",
+const baggageSlice = createSlice({
+  name: "baggage",
   initialState,
   reducers: {
     toggleItem(state, action: PayloadAction<string>) {
@@ -30,5 +30,5 @@ const luggageSlice = createSlice({
   },
 });
 
-export const { toggleItem, setLimit, reset } = luggageSlice.actions;
-export default luggageSlice.reducer;
+export const { toggleItem, setLimit, reset } = baggageSlice.actions;
+export default baggageSlice.reducer;

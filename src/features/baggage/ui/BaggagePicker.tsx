@@ -4,9 +4,9 @@ import { LimitSwitch } from "./LimitSwitch";
 import { ItemGrid } from "./ItemGrid";
 import { ResultPanel } from "./ResultPanel";
 import { useAppDispatch } from "@/store/hooks";
-import { reset } from "@/features/luggage/model/slice";
+import { reset } from "@/features/baggage/model/slice";
 
-export function LuggagePicker() {
+export function BaggagePicker() {
   const dispatch = useAppDispatch();
 
   return (

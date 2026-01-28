@@ -1,5 +1,5 @@
-import { LuggagePicker } from "@/features/luggage/ui/LuggagePicker";
+import { BaggagePicker } from "@/features/baggage/ui/BaggagePicker";
 
 export default function Page() {
-  return <LuggagePicker />;
+  return <BaggagePicker />;
 }

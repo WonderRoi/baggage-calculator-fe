@@ -1,9 +1,9 @@
 "use client";
 
-import { CATALOG_ITEMS } from "@/features/luggage/lib/catalog";
+import { CATALOG_ITEMS } from "@/features/baggage/lib/catalog";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { toggleItem } from "@/features/luggage/model/slice";
-import { selectSelectedIds } from "@/features/luggage/model/selectors";
+import { toggleItem } from "@/features/baggage/model/slice";
+import { selectSelectedIds } from "@/features/baggage/model/selectors";
 
 export function ItemGrid() {
   const dispatch = useAppDispatch();

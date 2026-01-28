@@ -1,17 +1,17 @@
 import type { RootState } from "@/store";
-import { CATALOG_ITEMS } from "@/features/luggage/lib/catalog";
-import { LIMIT_PRESETS } from "@/features/luggage/lib/limits";
+import { CATALOG_ITEMS } from "@/features/baggage/lib/catalog";
+import { LIMIT_PRESETS } from "@/features/baggage/lib/limits";
 
-export const selectSelectedIds = (s: RootState) => s.luggage.selectedIds;
-export const selectLimitId = (s: RootState) => s.luggage.limitId;
+export const selectSelectedIds = (s: RootState) => s.baggage.selectedIds;
+export const selectLimitId = (s: RootState) => s.baggage.limitId;
 
 export const selectLimitKg = (s: RootState) => {
-  const preset = LIMIT_PRESETS.find((p) => p.id === s.luggage.limitId);
+  const preset = LIMIT_PRESETS.find((p) => p.id === s.baggage.limitId);
   return preset?.limitKg ?? 10;
 };
 
 export const selectTotalKg = (s: RootState) => {
-  const set = new Set(s.luggage.selectedIds);
+  const set = new Set(s.baggage.selectedIds);
   return CATALOG_ITEMS.reduce((sum, item) => (set.has(item.id) ? sum + item.weightKg : sum), 0);
 };
 

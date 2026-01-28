@@ -1,9 +1,9 @@
 "use client";
 
-import { LIMIT_PRESETS } from "@/features/luggage/lib/limits";
+import { LIMIT_PRESETS } from "@/features/baggage/lib/limits";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { setLimit } from "@/features/luggage/model/slice";
-import { selectLimitId } from "@/features/luggage/model/selectors";
+import { setLimit } from "@/features/baggage/model/slice";
+import { selectLimitId } from "@/features/baggage/model/selectors";
 
 export function LimitSwitch() {
   const dispatch = useAppDispatch();

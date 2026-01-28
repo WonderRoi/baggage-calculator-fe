@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppSelector } from "@/store/hooks";
-import { selectLimitKg, selectOverKg, selectStatus, selectTotalKg } from "@/features/luggage/model/selectors";
+import { selectLimitKg, selectOverKg, selectStatus, selectTotalKg } from "@/features/baggage/model/selectors";
 
 export function ResultPanel() {
   const total = useAppSelector(selectTotalKg);
