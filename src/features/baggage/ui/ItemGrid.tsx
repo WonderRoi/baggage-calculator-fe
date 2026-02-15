@@ -3,17 +3,17 @@
 import { CATALOG_ITEMS } from "@/features/baggage/lib/catalog";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { toggleItem } from "@/features/baggage/model/slice";
-import { selectSelectedIds } from "@/features/baggage/model/selectors";
+import { selectSelectedMap } from "@/features/baggage/model/selectors";
 
 export function ItemGrid() {
   const dispatch = useAppDispatch();
-  const selectedIds = useAppSelector(selectSelectedIds);
-  const selectedSet = new Set(selectedIds);
+  const selectedMap = useAppSelector(selectSelectedMap);
 
   return (
     <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 12 }}>
       {CATALOG_ITEMS.map((item) => {
-        const selected = selectedSet.has(item.id);
+        const selected = !!selectedMap[item.id];
+
         return (
           <button
             key={item.id}

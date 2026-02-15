@@ -1,8 +1,8 @@
-import type { RootState } from "@/store";
+import type { RootState } from "@/store/index";
 import { CATALOG_ITEMS } from "@/features/baggage/lib/catalog";
 import { LIMIT_PRESETS } from "@/features/baggage/lib/limits";
 
-export const selectSelectedIds = (s: RootState) => s.baggage.selectedIds;
+export const selectSelectedMap = (s: RootState) => s.baggage.selectedMap;
 export const selectLimitId = (s: RootState) => s.baggage.limitId;
 
 export const selectLimitKg = (s: RootState) => {
@@ -11,8 +11,8 @@ export const selectLimitKg = (s: RootState) => {
 };
 
 export const selectTotalKg = (s: RootState) => {
-  const set = new Set(s.baggage.selectedIds);
-  return CATALOG_ITEMS.reduce((sum, item) => (set.has(item.id) ? sum + item.weightKg : sum), 0);
+  const selectedMap = s.baggage.selectedMap;
+  return CATALOG_ITEMS.reduce((sum, item) => (selectedMap[item.id] ? sum + item.weightKg : sum), 0);
 };
 
 export const selectOverKg = (s: RootState) => {
