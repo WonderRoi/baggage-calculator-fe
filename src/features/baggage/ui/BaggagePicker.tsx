@@ -35,15 +35,38 @@ export function BaggagePicker() {
 
   return (
     <div style={{ display: "grid", gap: 16 }}>
-      <h1>항공 수하물 무게 계산기</h1>
+      <h1>수하물 무게 계산기</h1>
 
-      <LimitSwitch presets={presets} />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: 12,
+        }}
+      >
+        <LimitSwitch presets={presets} />
+
+        <button
+          onClick={() => dispatch(reset())}
+          style={{
+            padding: "8px 12px",
+            borderRadius: 10,
+            border: "1px solid #000000",
+            background: "#000000",
+            cursor: "pointer",
+            color: "#ffffff",
+            fontSize: 14,
+            fontWeight: 700,
+          }}
+        >
+          초기화
+        </button>
+      </div>
 
       <ItemGrid items={items} selectedMap={selectedMap} />
 
       <ResultPanel items={items} presets={presets} selectedMap={selectedMap} limitId={limitId} />
-
-      <button onClick={() => dispatch(reset())}>Reset</button>
     </div>
   );
 }
