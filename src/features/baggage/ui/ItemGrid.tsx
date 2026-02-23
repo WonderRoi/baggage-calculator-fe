@@ -1,19 +1,16 @@
 "use client";
 
-import { CATALOG_ITEMS } from "@/features/baggage/lib/catalog";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import type { Item } from "@/features/baggage/lib/types";
+import { useAppDispatch } from "@/store/hooks";
 import { toggleItem } from "@/features/baggage/model/slice";
-import { selectSelectedMap } from "@/features/baggage/model/selectors";
 
-export function ItemGrid() {
+export function ItemGrid({ items, selectedMap }: { items: Item[]; selectedMap: Record<string, true> }) {
   const dispatch = useAppDispatch();
-  const selectedMap = useAppSelector(selectSelectedMap);
 
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 12 }}>
-      {CATALOG_ITEMS.map((item) => {
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 12 }}>
+      {items.map((item) => {
         const selected = !!selectedMap[item.id];
-
         return (
           <button
             key={item.id}
@@ -27,12 +24,9 @@ export function ItemGrid() {
               cursor: "pointer",
             }}
           >
-            <div style={{ fontSize: 22 }}>{item.icon}</div>
-            <div style={{ fontWeight: 700, marginTop: 6 }}>{item.name}</div>
-            <div style={{ opacity: 0.7, marginTop: 2 }}>{item.weightKg.toFixed(1)} kg</div>
-            <div style={{ marginTop: 8, fontSize: 12, opacity: 0.7 }}>
-              {selected ? "담김 (클릭하면 제외)" : "클릭해서 담기"}
-            </div>
+            <div style={{ fontWeight: 700 }}>{item.name}</div>
+            <div>{item.weight} kg</div>
+            <div style={{ opacity: 0.7 }}>{selected ? "담김 (클릭하면 제외)" : "클릭해서 담기"}</div>
           </button>
         );
       })}

@@ -2,14 +2,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { LimitPreset } from "@/features/baggage/lib/types";
 
 type BaggageState = {
-  // 선택된 id들을 "집합"처럼 저장: { "A": true, "B": true }
   selectedMap: Record<string, true>;
-  limitId: LimitPreset["id"];
+  limitId: string;
 };
 
 const initialState: BaggageState = {
   selectedMap: {},
-  limitId: "CARRY_10",
+  limitId: "", // 처음엔 비워두고, presets 로드 후 첫 프리셋으로 세팅
 };
 
 const baggageSlice = createSlice({

@@ -1,17 +1,17 @@
 "use client";
 
-import { LIMIT_PRESETS } from "@/features/baggage/lib/limits";
+import type { LimitPreset } from "@/features/baggage/lib/types";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setLimit } from "@/features/baggage/model/slice";
 import { selectLimitId } from "@/features/baggage/model/selectors";
 
-export function LimitSwitch() {
+export function LimitSwitch({ presets }: { presets: LimitPreset[] }) {
   const dispatch = useAppDispatch();
   const limitId = useAppSelector(selectLimitId);
 
   return (
-    <div style={{ display: "flex", gap: 8 }}>
-      {LIMIT_PRESETS.map((p) => (
+    <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+      {presets.map((p) => (
         <button
           key={p.id}
           onClick={() => dispatch(setLimit(p.id))}
@@ -24,7 +24,7 @@ export function LimitSwitch() {
             cursor: "pointer",
           }}
         >
-          {p.label}
+          {p.name} ({p.maxWeight}kg)
         </button>
       ))}
     </div>
