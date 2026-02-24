@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { LimitPreset } from "@/features/baggage/lib/types";
+import type { LimitPreset } from "@/entities/limitPreset/types";
 
 type BaggageState = {
   selectedMap: Record<string, true>;

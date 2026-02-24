@@ -1,7 +1,8 @@
 "use client";
 
-import type { Item, LimitPreset } from "@/features/baggage/lib/types";
-import { calcTotalWeight, calcLimitWeight, calcOverWeight, calcRatio, calcStatus } from "@/features/baggage/lib/calc";
+import type { Item } from "@/entities/item/types";
+import type { LimitPreset } from "@/entities/limitPreset/types";
+import { calcTotalWeight, calcLimitWeight, calcOverWeight, calcRatio, calcStatus } from "@/features/baggage/calc";
 
 export function ResultPanel({
   items,

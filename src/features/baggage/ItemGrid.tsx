@@ -1,8 +1,8 @@
 "use client";
 
-import type { Item } from "@/features/baggage/lib/types";
-import { useAppDispatch } from "@/store/hooks";
-import { toggleItem } from "@/features/baggage/model/slice";
+import type { Item } from "@/entities/item/types";
+import { useAppDispatch } from "@/app/providers/storeHooks";
+import { toggleItem } from "@/features/baggage/store";
 
 export function ItemGrid({ items, selectedMap }: { items: Item[]; selectedMap: Record<string, true> }) {
   const dispatch = useAppDispatch();
