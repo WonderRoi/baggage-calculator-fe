@@ -1,4 +1,5 @@
-import type { Item, LimitPreset } from "@/features/baggage/lib/types";
+import type { Item } from "@/entities/item/types";
+import type { LimitPreset } from "@/entities/limitPreset/types";
 
 /**
  * 선택된 아이템들의 총 무게 계산 (kg 기준)

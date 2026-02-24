@@ -1,16 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
-import { useItems, useLimitPresets } from "@/features/api/queries";
-import { ItemGrid } from "./ItemGrid";
-import { LimitSwitch } from "./LimitSwitch";
-import { ResultPanel } from "./ResultPanel";
+import { useItems } from "@/entities/item/query";
+import { useLimitPresets } from "@/entities/limitPreset/query";
+import { ItemGrid } from "@/features/baggage/ItemGrid";
+import { LimitSwitch } from "@/features/baggage/LimitSwitch";
+import { ResultPanel } from "@/features/baggage/ResultPanel";
 
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { reset, setLimit } from "@/features/baggage/model/slice";
-import { selectLimitId, selectSelectedMap } from "@/features/baggage/model/selectors";
+import { useAppDispatch, useAppSelector } from "@/app/providers/storeHooks";
+import { reset, setLimit } from "@/features/baggage/store";
+import { selectLimitId, selectSelectedMap } from "@/features/baggage/selectors";
 
-export function BaggagePicker() {
+export default function BaggageCalculator() {
   const dispatch = useAppDispatch();
   const selectedMap = useAppSelector(selectSelectedMap);
   const limitId = useAppSelector(selectLimitId);

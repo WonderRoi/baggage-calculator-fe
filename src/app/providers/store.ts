@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import baggageReducer from "@/features/baggage/model/slice";
+import baggageReducer from "@/features/baggage/store";
 
 export const store = configureStore({
   reducer: {
