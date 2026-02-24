@@ -2,7 +2,7 @@
 
 import type { Item } from "@/entities/item/types";
 import { useAppDispatch } from "@/app/providers/storeHooks";
-import { toggleItem } from "@/features/baggage/store";
+import { toggleItem } from "@/features/baggage/slice";
 
 export function ItemGrid({ items, selectedMap }: { items: Item[]; selectedMap: Record<string, true> }) {
   const dispatch = useAppDispatch();

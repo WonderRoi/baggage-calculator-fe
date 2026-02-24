@@ -2,7 +2,7 @@
 
 import type { LimitPreset } from "@/entities/limitPreset/types";
 import { useAppDispatch, useAppSelector } from "@/app/providers/storeHooks";
-import { setLimit } from "@/features/baggage/store";
+import { setLimit } from "@/features/baggage/slice";
 import { selectLimitId } from "@/features/baggage/selectors";
 
 export function LimitSwitch({ presets }: { presets: LimitPreset[] }) {

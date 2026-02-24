@@ -8,7 +8,7 @@ type BaggageState = {
 
 const initialState: BaggageState = {
   selectedMap: {},
-  limitId: "", // 처음엔 비워두고, presets 로드 후 첫 프리셋으로 세팅
+  limitId: "",
 };
 
 const baggageSlice = createSlice({
@@ -17,12 +17,8 @@ const baggageSlice = createSlice({
   reducers: {
     toggleItem(state, action: PayloadAction<string>) {
       const id = action.payload;
-
-      if (state.selectedMap[id]) {
-        delete state.selectedMap[id];
-      } else {
-        state.selectedMap[id] = true;
-      }
+      if (state.selectedMap[id]) delete state.selectedMap[id];
+      else state.selectedMap[id] = true;
     },
     setLimit(state, action: PayloadAction<LimitPreset["id"]>) {
       state.limitId = action.payload;
